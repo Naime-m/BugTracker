@@ -7,7 +7,8 @@ namespace BugTracker.Data;
 public class BugTrackerDbContext : DbContext
 {
     public BugTrackerDbContext(DbContextOptions options) : base(options)
-    { }
+    { 
+    }
 
     public DbSet<Bug> Bugs { get; set; }
 }

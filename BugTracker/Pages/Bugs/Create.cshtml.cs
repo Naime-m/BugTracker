@@ -17,7 +17,7 @@ namespace BugTracker.Pages.Bugs
         {
             if (!ModelState.IsValid) return Page();
 
-            Bug.Date= DateTime.Now;
+            Bug.Date = DateTime.Now;
             await _context.Bugs.AddAsync(Bug);
             await _context.SaveChangesAsync();
 
