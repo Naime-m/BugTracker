@@ -22,7 +22,7 @@ namespace BugTracker.Pages.Bugs
             await _context.SaveChangesAsync();
 
             return RedirectToPage("../Index");
-            
+
         }
 
         [BindProperty]
