@@ -4,6 +4,28 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <div class="text-center">
     <a asp-page="Bugs/Create"> + Add a new bug</a>
 </div>
+
+@if(Model.Bugs.Count() == 0)
+{
+    <h1>No bug added yet, well done !</h1>
+}
+else
+{ 
+    @foreach(var bug in Model.Bugs)
+    {
+    <div class="card">
+    <h5 class="card-header">@bug.BugType</h5>
+    <div class="card-body">
+     <h2 class="card-title">@bug.Author</h2>
+     <h5 class="card-title">@bug.Name</h5>
+     <p class="card-text">@bug.Description</p>
+    </div>
+</div>
+        
+    }
+    
+}

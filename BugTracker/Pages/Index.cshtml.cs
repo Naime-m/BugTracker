@@ -1,20 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BugTracker.Data;
+using BugTracker.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace BugTracker.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly BugTrackerDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+
+        public IndexModel(BugTrackerDbContext context)
         {
-            _logger = logger;
+            _context = context;
+            
         }
 
-        public void OnGet()
-        {
 
+        public async void OnGet()
+        {
+            Bugs = await _context.Bugs.OrderByDescending(i => i.Date).ToListAsync();
         }
+        public IEnumerable<Bug> Bugs { get; set; } = Enumerable.Empty<Bug>();
     }
 }
