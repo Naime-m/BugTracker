@@ -17,7 +17,7 @@ public class IndexModel : PageModel
 
     public IEnumerable<Bug> Bugs { get; set; } = Enumerable.Empty<Bug>();
 
-    public async void OnGet()
+    public async Task OnGet()
     {
         Bugs = await _context.Bugs.ToListAsync();
     }
