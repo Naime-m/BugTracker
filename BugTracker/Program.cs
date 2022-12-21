@@ -1,7 +1,11 @@
+using BugTracker.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<BugTrackerDbContext>(o => o.UseSqlServer("BugTrackerDb"));
 
 var app = builder.Build();
 
