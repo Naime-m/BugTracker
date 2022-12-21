@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<BugTrackerDbContext>(o => o.UseSqlServer("BugTrackerDb"));
+builder.Services.AddDbContext<BugTrackerDbContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("BugTrackerDb")));
 
 var app = builder.Build();
 

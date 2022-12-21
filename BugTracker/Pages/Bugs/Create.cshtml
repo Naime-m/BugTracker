@@ -1,0 +1,36 @@
+﻿@page
+@using BugTracker.Models;
+@model BugTracker.Pages.Bugs.CreateModel
+@{
+}
+Bug
+<div>
+<form method="post">
+
+    <div>
+    <label asp-for="Bug.Name">Name</label>
+    <input asp-for="Bug.Name" />
+    </div>
+
+    <div>
+    <label asp-for="Bug.Description">Description</label>
+    <input asp-for="Bug.Description" />
+    </div>
+
+     <div>
+    <label asp-for="Bug.Author">Author</label>
+    <input asp-for="Bug.Author" />
+    </div>
+
+    <div>
+    <label asp-for="Bug.Status">Status</label>
+    <select asp-for="Bug.Status" asp-items="Html.GetEnumSelectList<Status>()"></select>
+    </div>
+
+    <div>
+    <label asp-for="Bug.Status">Status</label>
+    <select asp-for="Bug.BugType" asp-items="Html.GetEnumSelectList<BugType>()"></select>
+    </div>
+    <button type="submit">Add Bug</button>
+</form>
+</div>
