@@ -19,4 +19,14 @@ public class DetailModel : PageModel
     {
         Bug = await _context.Bugs.FindAsync(id);
     }
+
+    public async Task<IActionResult> OnPostDelete(int id)
+    {
+        var bug = await _context.Bugs.FindAsync(id);
+            _context.Bugs.Remove(bug);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("../Index");
+        
+    }
 }

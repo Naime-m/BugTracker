@@ -10,6 +10,7 @@
         <div class="form-group">
             <label asp-for="Bug.Name">Name</label>
             <input type="hidden" asp-for="Bug.Id"/>
+            <input type="hidden" asp-for="Bug.Date"/>
             <input asp-for="Bug.Name" class="form-control" />
             <span asp-validation-for="Bug.Name" class="text text-danger"></span>
         </div>
