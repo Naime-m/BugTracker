@@ -1,4 +1,5 @@
 using BugTracker.Data;
+using BugTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,7 +13,10 @@ public class DetailModel : PageModel
     {
         _context = context;
     }
-    public void OnGet()
+
+    public Bug Bug { get; set; }
+    public async Task OnGet(int id)
     {
+        Bug = await _context.Bugs.FindAsync(id);
     }
 }
