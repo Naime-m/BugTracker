@@ -22,8 +22,9 @@ else
             <h5 class="card-header">@bug.BugType</h5>
             <div class="card-body">
              <h2 class="card-title">@bug.Author</h2>
-             <h5 class="card-title">@bug.Name</h5>
+             <a asp-page="Bugs/Detail" asp-route-id="@bug.Id" class="text text-decoration-none">@bug.Name</a>
              <p class="card-text">@bug.Description</p>
+             <p class="card-text">@bug.Date</p>
              </div>
         </div>     
     }
