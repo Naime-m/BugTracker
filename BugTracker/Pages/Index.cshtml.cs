@@ -19,6 +19,6 @@ public class IndexModel : PageModel
 
     public async Task OnGet()
     {
-        Bugs = await _context.Bugs.ToListAsync();
+        Bugs = await _context.Bugs.Where(b => b.Status != Status.Closed).ToListAsync();
     }
 }

@@ -11,6 +11,7 @@ public class Bug
     [Required]
     [StringLength(300)]
     public string Description { get; set; } = string.Empty;
+    [Required]
     public string Author { get; set; } = string.Empty;
 
     public DateTime Date { get; set; }

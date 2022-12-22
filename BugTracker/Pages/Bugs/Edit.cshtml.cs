@@ -30,6 +30,6 @@ public class EditModel : PageModel
     }
 
     [BindProperty]
-    public Bug? Bug { get; set; }
+    public Bug Bug { get; set; }
 
 }
