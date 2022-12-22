@@ -1,4 +1,5 @@
 ﻿@page "{id:int}"
+@using Humanizer;
 @model BugTracker.Pages.Bugs.DetailModel
 @{
 }
@@ -16,6 +17,6 @@ else
         <h3>@Model.Bug.Description</h3>
         <h3>@Model.Bug.Status</h3>
         <h3>@Model.Bug.BugType</h3>
-        <h3>@Model.Bug.Date</h3>
+        <h3>@Model.Bug.Date.Humanize(utcDate:false)</h3>
     </div>
 }
