@@ -1,0 +1,30 @@
+﻿@page
+@using Humanizer;
+@model BugTracker.Pages.Bugs.ClosedModel
+@{
+}
+
+@if(Model.Bugs.Count() == 0)
+{
+    <p>No closed bug added yet, try again!</p>
+}
+else
+{
+
+    @foreach (var bug in Model.Bugs)
+    {
+
+
+        <div class="card w-20 m-3 d-inline-flex">
+            <a class= "card-header" asp-page="Detail" asp-route-id="@bug.Id" class="text text-decoration-none">@bug.Name</a>
+            <span class="badge bg-secondary">@bug.BugType</span>
+            <div class="card-body">
+             <h2 class="card-title">@bug.Author</h2>
+             <p class="card-text">@bug.Description</p>
+             <p class="card-text">@bug.Date.Humanize(utcDate:false)</p>
+             <span class="badge bg-danger">@bug.Status</span>
+            </div>
+        </div>
+               
+    }
+}

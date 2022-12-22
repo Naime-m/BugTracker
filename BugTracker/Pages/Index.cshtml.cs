@@ -1,20 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using BugTracker.Data;
+using BugTracker.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
-namespace BugTracker.Pages
+namespace BugTracker.Pages;
+
+public class IndexModel : PageModel
 {
-    public class IndexModel : PageModel
+    private readonly BugTrackerDbContext _context;
+
+    public IndexModel(BugTrackerDbContext context)
     {
-        private readonly ILogger<IndexModel> _logger;
+        _context = context;
+    }
 
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
+    public IEnumerable<Bug> Bugs { get; set; } = Enumerable.Empty<Bug>();
 
-        public void OnGet()
-        {
-
-        }
+    public async Task OnGet()
+    {
+        Bugs = await _context.Bugs.Where(b => b.Status != Status.Closed).ToListAsync();
     }
 }
