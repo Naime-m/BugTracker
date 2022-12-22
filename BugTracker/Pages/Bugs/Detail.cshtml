@@ -20,8 +20,8 @@ else
         <h3>@Model.Bug.Date.Humanize(utcDate:false)</h3>
         <a asp-page="Edit" asp-route-id="@Model.Bug.Id">Edit</a>
 
-        <form asp-page-handler="delete">
-        <button type="submit" onclick="return confirm('Are you sure you want to delete this bug?');" asp-route-id="@Model.Bug.Id">Delete</button>
+        <form method="post">
+        <button type="submit" asp-page-handler="Delete" onclick="return confirm('Are you sure you want to delete this bug?');" asp-route-id="@Model.Bug.Id">Delete</button>
         </form>
     </div>
 }
