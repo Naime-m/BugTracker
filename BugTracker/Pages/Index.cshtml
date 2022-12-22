@@ -19,15 +19,18 @@ else
     
     @foreach(var bug in Model.Bugs)
      {
-        <div class="card">
-            <h5 class="card-header">@bug.BugType</h5>
+      
+         
+        <div class="card w-25 mb-3">
+             <a class= "card-header" asp-page="Bugs/Detail" asp-route-id="@bug.Id" class="text text-decoration-none">@bug.Name</a>
+            <span class="badge bg-secondary">@bug.BugType</span>
             <div class="card-body">
              <h2 class="card-title">@bug.Author</h2>
-             <a asp-page="Bugs/Detail" asp-route-id="@bug.Id" class="text text-decoration-none">@bug.Name</a>
              <p class="card-text">@bug.Description</p>
              <p class="card-text">@bug.Date.Humanize(utcDate:false)</p>
              </div>
-        </div>     
+        </div>
+               
     }
 
 }
