@@ -14,7 +14,7 @@ public class DetailModel : PageModel
         _context = context;
     }
 
-    public Bug Bug { get; set; }
+    public Bug? Bug { get; set; }
     public async Task OnGet(int id)
     {
         Bug = await _context.Bugs.FindAsync(id);

@@ -1,4 +1,21 @@
-﻿@page "{id}"
+﻿@page "{id:int}"
 @model BugTracker.Pages.Bugs.DetailModel
 @{
+}
+
+@if(Model.Bug == null)
+{
+    <p>No bug found</p>
+    <a asp-page="../Index">Return to home</a>
+}
+else
+{
+    <div>
+        <h1>@Model.Bug.Name</h1>
+        <h2 class="mt-2">@Model.Bug.Author</h2>
+        <h3>@Model.Bug.Description</h3>
+        <h3>@Model.Bug.Status</h3>
+        <h3>@Model.Bug.BugType</h3>
+        <h3>@Model.Bug.Date</h3>
+    </div>
 }
