@@ -18,6 +18,6 @@ else
         <h3>@Model.Bug.Status</h3>
         <h3>@Model.Bug.BugType</h3>
         <h3>@Model.Bug.Date.Humanize(utcDate:false)</h3>
-        <a asp-page="/Edit">Edit</a>
+        <a asp-page="Edit" asp-route-id="@Model.Bug.Id">Edit</a>
     </div>
 }

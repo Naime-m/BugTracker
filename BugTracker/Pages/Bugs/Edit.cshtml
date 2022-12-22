@@ -9,6 +9,7 @@
 
         <div class="form-group">
             <label asp-for="Bug.Name">Name</label>
+            <input type="hidden" asp-for="Bug.Id"/>
             <input asp-for="Bug.Name" class="form-control" />
             <span asp-validation-for="Bug.Name" class="text text-danger"></span>
         </div>
@@ -32,6 +33,6 @@
             <label class="mt-1" asp-for="Bug.Status">Type</label>
             <select asp-for="Bug.BugType" class="form-select" asp-items="Html.GetEnumSelectList<Status>()"></select>
         </div>
-        <button class="btn btn-success mt-2">Add Bug</button>
+        <button class="btn btn-success mt-2">Edit Bug</button>
     </form>
 </div>
