@@ -33,7 +33,7 @@
         </div>
         <div>
             <label class="mt-1" asp-for="Bug.Status">Type</label>
-            <select asp-for="Bug.BugType" class="form-select" asp-items="Html.GetEnumSelectList<Status>()"></select>
+            <select asp-for="Bug.Status" class="form-select" asp-items="Html.GetEnumSelectList<Status>()"></select>
         </div>
         <button class="btn btn-success mt-2">Edit Bug</button>
     </form>
