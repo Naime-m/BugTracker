@@ -12,16 +12,22 @@
 else
 {
     <div>
-        <h1>@Model.Bug.Name</h1>
-        <h2 class="mt-2">@Model.Bug.Author</h2>
-        <h3>@Model.Bug.Description</h3>
-        <h3>@Model.Bug.Status</h3>
-        <h3>@Model.Bug.BugType</h3>
-        <h3>@Model.Bug.Date.Humanize(utcDate:false)</h3>
-        <button class="btn btn-info"><a asp-page="Edit" class="text text-decoration-none text-white" asp-route-id="@Model.Bug.Id">Edit</a></button>
+        <div class="card m-3">
+            <div class="card-header">@Model.Bug.Name</div>
+            <span class="badge bg-secondary">@Model.Bug.BugType</span>
+            <div class="card-body">
+                <h2 class="card-title">@Model.Bug.Author</h2>
+                <p class="card-text">@Model.Bug.Description</p>
+                <p class="card-text">@Model.Bug.Date.Humanize(utcDate:false)</p>
+                <p class="card-text">@Model.Bug.Status</p>
+            </div>
+        </div>
+    </div>
+
+
+        <button class="btn btn-info" ><a asp-page="Edit" class="text text-decoration-none text-white" asp-route-id="@Model.Bug.Id">Edit</a></button>
 
         <form method="post">
         <button type="submit" class="btn btn-danger mt-2" asp-page-handler="Delete" onclick="return confirm('Are you sure you want to delete this bug?');" asp-route-id="@Model.Bug.Id">Delete</button>
         </form>
-    </div>
 }
