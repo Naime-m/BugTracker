@@ -1,6 +1,6 @@
 # BugTracker
 
-A webapp API to track your bugs and issues.
+A webapp to track your bugs and issues.
 Made using ASP.NET Razor Pages.
 
 ## Description
